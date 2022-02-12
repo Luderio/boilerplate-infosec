@@ -1,5 +1,10 @@
 const express = require('express');
+const helmet = require('helmet')
 const app = express();
+
+//mounted the helmet.hidePoweredBy() middleware to hide the "X-Powered-By: Express" header
+app.use(helmet.hidePoweredBy({setTo: 'PHP 4.2.0'}))
+
 
 
 
