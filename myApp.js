@@ -27,6 +27,13 @@ app.use(helmet.dnsPrefetchControl({}));
 // mounted helmet.noCache() to Disable Client-Side Caching.
 app.use(helmet.noCache());
 
+// mounted helmet.contentSecurityPolicy() to Set a Content Security Policy.
+const directives = {
+defaultSrc: ["'self'"],
+scriptSrc: ["'self'", 'trusted-cdn.com']
+};
+app.use(helmet.contentSecurityPolicy(directives));
+
 
 
 
