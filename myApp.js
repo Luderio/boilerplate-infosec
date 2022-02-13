@@ -8,6 +8,9 @@ app.use(helmet.hidePoweredBy({setTo: 'PHP 4.2.0'}))
 // mounted the helmet.frameguard() middleware to restrict the Risk of Clickjacking.
 app.use(helmet.frameguard({action: 'deny'}))
 
+// mounted helmet.xssFilter() to prevent basic XSS attacks.
+app.use(helmet.xssFilter({}))
+
 
 
 
