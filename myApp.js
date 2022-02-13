@@ -14,8 +14,12 @@ app.use(helmet.xssFilter({}));
 // mounted helmet.noSniff() to Avoid Inferring the Response MIME Type.
 app.use(helmet.noSniff({}));
 
-//mounted helmet.ieNoOpen() to Prevent IE from Opening Untrusted HTML
+// mounted helmet.ieNoOpen() to Prevent IE from Opening Untrusted HTML.
 app.use(helmet.ieNoOpen({}));
+
+// mounted helmet.hsts() to Ask Browsers to Access Your Site via HTTPS. Note: Configuring HTTPS on a custom website requires the acquisition of a domain, and a SSL/TLS Certificate.
+const ninetyDaysInSeconds = 90*24*60*60;
+app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}));
 
 
 
