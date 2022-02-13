@@ -18,7 +18,7 @@ app.use(helmet.noSniff({}));
 app.use(helmet.ieNoOpen({}));
 
 // mounted helmet.hsts() to Ask Browsers to Access Your Site via HTTPS. Note: Configuring HTTPS on a custom website requires the acquisition of a domain, and a SSL/TLS Certificate.
-const ninetyDaysInSeconds = 90*24*60*60;
+let ninetyDaysInSeconds = 90*24*60*60;
 app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}));
 
 
