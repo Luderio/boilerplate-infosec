@@ -21,6 +21,9 @@ app.use(helmet.ieNoOpen({}));
 let ninetyDaysInSeconds = 90*24*60*60;
 app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}));
 
+// mounted helmet.dnsPrefetchControl() to Disable DNS Prefetching.
+app.use(helmet.dnsPrefetchControl({}));
+
 
 
 
