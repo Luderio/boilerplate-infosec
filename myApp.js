@@ -28,11 +28,9 @@ app.use(helmet.dnsPrefetchControl({}));
 app.use(helmet.noCache());
 
 // mounted helmet.contentSecurityPolicy() to Set a Content Security Policy.
-const directives = {
-defaultSrc: ["'self'"],
-scriptSrc: ["'self'", 'trusted-cdn.com']
-};
-app.use(helmet.contentSecurityPolicy(directives));
+app.use(helmet.contentSecurityPolicy({
+  directives: {defaultSrc: ["'self'"], scriptSrc: ["'self'", 'trusted-cdn.com']}
+}));
 
 
 
