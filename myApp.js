@@ -12,7 +12,10 @@ app.use(helmet.frameguard({action: 'deny'}));
 app.use(helmet.xssFilter({}));
 
 // mounted helmet.noSniff() to Avoid Inferring the Response MIME Type.
-app.use(helmet.noSniff({}))
+app.use(helmet.noSniff({}));
+
+//mounted helmet.ieNoOpen() to Prevent IE from Opening Untrusted HTML
+app.use(helmet.ieNoOpen({}));
 
 
 
