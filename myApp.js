@@ -3,13 +3,16 @@ const helmet = require('helmet')
 const app = express();
 
 //mounted the helmet.hidePoweredBy() middleware to hide the "X-Powered-By: Express" header.
-app.use(helmet.hidePoweredBy({setTo: 'PHP 4.2.0'}))
+app.use(helmet.hidePoweredBy({setTo: 'PHP 4.2.0'}));
 
 // mounted the helmet.frameguard() middleware to restrict the Risk of Clickjacking.
-app.use(helmet.frameguard({action: 'deny'}))
+app.use(helmet.frameguard({action: 'deny'}));
 
 // mounted helmet.xssFilter() to prevent basic XSS attacks.
-app.use(helmet.xssFilter({}))
+app.use(helmet.xssFilter({}));
+
+// mounted helmet.noSniff() to Avoid Inferring the Response MIME Type.
+app.use(helmet.noSniff({}))
 
 
 
